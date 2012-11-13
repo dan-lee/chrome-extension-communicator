@@ -1,0 +1,19 @@
+{
+  "name": "Chrome extension communicator",
+  "description": "A sample extension with simplified communication between content script and background script",
+  "manifest_version": 2,
+  "version": "1.0",
+  "background": {
+    "scripts": [
+      "background/bgCommunicator.js",
+      "background/background.js"
+    ]
+  },
+  "content_scripts": [{
+    "matches": [ "*://localhost/*", "*://agixo.de/*" ],
+    "js": [
+      "contentscript/csCommunicator.js",
+      "contentscript/contentscript.js"
+    ]
+  }]
+}

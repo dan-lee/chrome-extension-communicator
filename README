@@ -1,1 +1,4 @@
-This file was created by JetBrains PhpStorm 5.0.4 for binding GitHub repository
+Two wrappers for communication inside your Google Chrome extension.
+
+One for the content script side and one for the background script side.
+The code should be self explanatory.
