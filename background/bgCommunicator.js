@@ -5,22 +5,21 @@ var communicator = (function() {
   // all registered tabs
   var channelTabs = [];
 
-// a tab requests connection to the background script
-chrome.extension.onConnect.addListener(function(port) {
-  var tabId = port.sender.tab.id;
-  console.log('Received request from content script', port);
+  // a tab requests connection to the background script
+  chrome.extension.onConnect.addListener(function(port) {
+    var tabId = port.sender.tab.id;
+    console.log('Received request from content script', port);
 
-  // add tab when opened
-  if (channelTabs.indexOf(tabId) == -1) {
-    channelTabs.push(tabId);
-  }
+    // add tab when opened
+    if (channelTabs.indexOf(tabId) == -1) {
+      channelTabs.push(tabId);
+    }
 
-  // remove when closed/directed to another url
-  port.onDisconnect.addListener(function() {
-    channelTabs.splice(channelTabs.indexOf(tabId), 1);
+    // remove when closed/directed to another url
+    port.onDisconnect.addListener(function() {
+      channelTabs.splice(channelTabs.indexOf(tabId), 1);
+    });
   });
-});
-
 
   // public
   return {

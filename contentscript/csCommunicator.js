@@ -1,3 +1,5 @@
+// Manages a single tab connection
+
 var communicator = (function() {
   // Register this tab to the background script
   var port = chrome.extension.connect();
