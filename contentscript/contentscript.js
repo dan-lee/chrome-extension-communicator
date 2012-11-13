@@ -1,3 +1,5 @@
+// this script relies on csCommunicator.js
+
 communicator.on('iconClicked', function(obj) {
   console.log('Icon was clicked. Received following data:', obj);
 
